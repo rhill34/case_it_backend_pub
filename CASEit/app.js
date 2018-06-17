@@ -4,24 +4,59 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+/**
+ * 
+ * These are the Routing index Variables
+ * *-->Think reference to the ~Controller~ files 
+ * 
+ * 
+ */
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
-var app = express();
+var app = express(); //Creates the Express Application
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'jade'); //templating for HTML
 
+/**
+ * 
+ * 
+ * 
+ * 
+ * This is the MetaData for the view to reference for rendering 
+ * access to assets
+ * 
+ * 
+ * 
+ * 
+ */
+// Uncomment after placing yoour favicon in /public
+//app.use(favicom(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(express.static(path.join(__dirname, 'public'))); //for the assets
+/**
+ * 
+ * 
+ * This is the Init to *Switch Section for forwarding routes
+ * *-->Think ~Server~ endpoints to pass to the ~Controller files~ to handle the request
+ *   
+ * 
+ * 
+ */
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
+/**
+ * 
+ * 
+ * ERROR handling 
+ * 
+ * 
+ */
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

@@ -1,25 +1,32 @@
 #!/usr/bin/env node
-
+/***************************************************************************************************************************
+ * 
+ * 
+ * This is The Server File 
+ * 
+ * 
+ * 
+ ************************************************************************************************************************** */
 /**
  * Module dependencies.
  */
 
-var app = require('../app');
+var app = require('../app'); //Sets up the express application
 var debug = require('debug')('caseit:server');
-var http = require('http');
+var http = require('http'); //http module
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000'); //This is the server file 
-app.set('port', port);
+var port = normalizePort(process.env.PORT || '3000'); //The settings for the port
+app.set('port', port); 
 
 /**
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
+var server = http.createServer(app); //handler for the tasks
 
 /**
  * Listen on provided port, on all network interfaces.
