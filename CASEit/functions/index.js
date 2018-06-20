@@ -14,13 +14,13 @@ exports.onFileChange = functions.storage.object().onFinalize(event => {
 });
 
 exports.uploadFile = functions.https.onRequest((req, res) => {
-    cors(req, res, (request, response) => {
+    cors(req, res, (req, res) => {
         if (request.method !== 'POST') {
-            return response.status(500).json({
+            return res.status(500).json({
                 message: "Not allowed"
             })
         }
-        response.status(200).json({
+        res.status(200).json({
             message: "It worked!"
         });
     })

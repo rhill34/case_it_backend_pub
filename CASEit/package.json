@@ -1,11 +1,26 @@
 {
-  "name": "caseit",
+  "name": "caseit_ggsl_api",
   "version": "0.0.0",
   "private": true,
+  "description": "CASEit Serverless REST API: Babel, Cloud Functions, Firebase, Webpack, etc --RH3 ",
   "scripts": {
-    "start": "node ./bin/www"
+    "start: ex": "node ./bin/www",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve: web": "webpack-dev-server --mode development --output-public-path=/build/",
+    "build: web": "webpack --mode production",
+    "dev: web": "webpack --mode development",
+    "lint": "eslint .",
+    "serve: fire": "firebase serve --only functions",
+    "shell": "firebase functions:shell",
+    "start: fire": "npm run shell",
+    "deploy: fire": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
   },
+  "author": "RH3",
+  "license": "ISC",
   "dependencies": {
+    "firebase-admin": "~5.12.1",
+    "firebase-functions": "^1.0.3",
     "cookie-parser": "~1.4.3",
     "cors": "^2.8.4",
     "debug": "~2.6.9",
@@ -13,5 +28,17 @@
     "http-errors": "~1.6.2",
     "jade": "~1.11.0",
     "morgan": "~1.9.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "eslint": "^4.12.0",
+    "eslint-plugin-promise": "^3.6.0",
+    "webpack": "^4.12.0",
+    "webpack-cli": "^3.0.8",
+    "webpack-dev-server": "^3.1.4"
   }
 }
